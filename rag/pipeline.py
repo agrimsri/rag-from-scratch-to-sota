@@ -54,6 +54,14 @@ def ask(
         idx = get_or_load_index(docs_dir)
         trace.append(f"dense_retrieve(k={top_k})")
         hits = retrieve.retrieve(question, idx, k=top_k)
+        
+        if config.USE_SMALL_TO_BIG:
+            from rag import expand
+            chunk_map = {c.id: c for c in idx["chunks"]}
+            gen_hits = expand.expand_hits(hits, chunk_map)
+        else:
+            gen_hits = hits
+
         if retrieval_only:
             gen_result = {
                 "answer": "",
@@ -61,7 +69,7 @@ def ask(
                 "answerable": True,
             }
         else:
-            gen_result = generate.generate_answer(question, hits=hits, no_rag=False)
+            gen_result = generate.generate_answer(question, hits=gen_hits, no_rag=False)
 
     calls_used = llm.get_call_count() - calls_start
 
