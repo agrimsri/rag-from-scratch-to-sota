@@ -1,7 +1,7 @@
 """
 Hybrid retrieval module combining Dense embeddings and BM25 via Reciprocal Rank Fusion (RRF),
-with optional Multi-Query Expansion and HyDE query transformations.
-Introduced in branch 05, extended in branch 06.
+with optional Multi-Query Expansion, HyDE, and Two-Stage Listwise Reranking.
+Introduced in branch 05, extended in branch 06 and 07.
 """
 
 from typing import Any, Dict, List
@@ -70,8 +70,7 @@ def _retrieve_single(query: str, index: Dict[str, Any], k: int = 20) -> List[Hit
 
 def retrieve(query: str, index: Dict[str, Any], k: int = 5) -> List[Hit]:
     """
-    Performs retrieval with optional query expansion (Multi-Query) and HyDE.
-    Pools candidate rankings using Reciprocal Rank Fusion.
+    Performs retrieval with optional query expansion, HyDE, and two-stage reranking.
     """
     query_texts = [query]
 
@@ -86,22 +85,30 @@ def retrieve(query: str, index: Dict[str, Any], k: int = 5) -> List[Hit]:
         if hypo:
             query_texts.append(hypo)
 
+    candidate_target = max(k * 3, 15) if config.USE_RERANK else k
+
     if len(query_texts) == 1:
-        return _retrieve_single(query, index, k=k)
+        candidates = _retrieve_single(query, index, k=candidate_target)
+    else:
+        # Multi-query candidate pooling
+        all_rankings: List[List[Hit]] = []
+        for q_text in query_texts:
+            ranking = _retrieve_single(q_text, index, k=candidate_target)
+            all_rankings.append(ranking)
 
-    # Multi-query candidate pooling
-    all_rankings: List[List[Hit]] = []
-    for q_text in query_texts:
-        ranking = _retrieve_single(q_text, index, k=max(k, 20))
-        all_rankings.append(ranking)
+        scores: Dict[str, float] = {}
+        chunk_map = {}
+        for ranking in all_rankings:
+            for rank, hit in enumerate(ranking, 1):
+                cid = hit.chunk.id
+                chunk_map[cid] = hit.chunk
+                scores[cid] = scores.get(cid, 0.0) + (1.0 / (60 + rank))
 
-    scores: Dict[str, float] = {}
-    chunk_map = {}
-    for ranking in all_rankings:
-        for rank, hit in enumerate(ranking, 1):
-            cid = hit.chunk.id
-            chunk_map[cid] = hit.chunk
-            scores[cid] = scores.get(cid, 0.0) + (1.0 / (60 + rank))
+        ranked_items = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:candidate_target]
+        candidates = [Hit(chunk=chunk_map[cid], score=score) for cid, score in ranked_items]
 
-    ranked_items = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:k]
-    return [Hit(chunk=chunk_map[cid], score=score) for cid, score in ranked_items]
+    if config.USE_RERANK:
+        from rag import rerank as rmod
+        return rmod.rerank(query, candidates, top_n=k)
+
+    return candidates[:k]
