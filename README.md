@@ -6,11 +6,11 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `11-capstone` (`step-11`) — Capstone: Ablation study, held-out test split, and production engineering synthesis.
+📍 **You are on `main`:** The complete, finished SOTA RAG pipeline containing all 11 pedagogical steps. To follow the step-by-step progression from scratch, checkout the individual branch tags: `git checkout step-01` through `step-11`.
 
 ---
 
-## 📊 Results Progression
+## 📊 Results Progression Across Steps
 
 | Branch / Step | Recall@5 | Hit@5 | MRR | Accuracy | Context Chars | LLM Calls | Latency (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
