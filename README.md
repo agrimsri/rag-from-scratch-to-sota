@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `01-whole-doc` (`step-01`) — Embedding whole documents with cosine similarity.
+📍 **You are here:** `02-chunking` (`step-02`) — Fixed-size sliding-window chunking with overlap.
 
 ---
 
@@ -16,6 +16,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 00-no-rag | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.6 | 2.08 |
 | 01-whole-doc | 0.954 | 0.954 | 0.765 | 0.521 | 51733 | 1.0 | 2.60 |
+| 02-chunking | 0.849 | 0.884 | 0.771 | 0.708 | 4736 | 0.3 | 0.50 |
 
 ---
 
