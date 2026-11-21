@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `05-hybrid-search` (`step-05`) — Hybrid search combining dense embeddings and BM25 with Reciprocal Rank Fusion.
+📍 **You are here:** `06-query-transform` (`step-06`) — Query expansion and Hypothetical Document Embeddings (HyDE).
 
 ---
 
@@ -20,6 +20,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | 03-structure-aware | 0.930 | 0.954 | 0.878 | 0.792 | 1956 | 1.0 | 1.24 |
 | 04-grounded-generation | 0.930 | 0.954 | 0.878 | 0.625 | 1956 | 0.3 | 0.45 |
 | 05-hybrid-search | 0.965 | 1.000 | 0.977 | 0.646 | 2037 | 1.0 | 0.98 |
+| 06-query-transform | 1.000 | 1.000 | 0.965 | 0.646 | 2115 | 2.8 | 2.54 |
 
 ---
 
