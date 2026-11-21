@@ -52,9 +52,15 @@ def ask(
         hits: List[Hit] = []
     else:
         idx = get_or_load_index(docs_dir)
-        trace.append(f"dense_retrieve(k={top_k})")
-        hits = retrieve.retrieve(question, idx, k=top_k)
-        
+        if config.USE_AGENT:
+            from rag import agent
+            agent_res = agent.agent_search_loop(question, idx, max_steps=3)
+            hits = agent_res["hits"]
+            trace.extend(agent_res["trace"])
+        else:
+            trace.append(f"dense_retrieve(k={top_k})")
+            hits = retrieve.retrieve(question, idx, k=top_k)
+
         if config.USE_SMALL_TO_BIG:
             from rag import expand
             chunk_map = {c.id: c for c in idx["chunks"]}
