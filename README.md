@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `08-contextual-retrieval` (`step-08`) — Index-time chunk contextualization and disambiguation.
+📍 **You are here:** `09-small-to-big` (`step-09`) — Small-to-big retrieval with dynamic parent and sibling context expansion.
 
 ---
 
@@ -23,6 +23,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | 06-query-transform | 1.000 | 1.000 | 0.965 | 0.646 | 2115 | 2.8 | 2.54 |
 | 07-reranking | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 1.1 | 2.04 |
 | 08-contextual-retrieval | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.79 |
+| 09-small-to-big | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.74 |
 
 ---
 
