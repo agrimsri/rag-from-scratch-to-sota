@@ -184,13 +184,14 @@ def generate_json(
             {"role": "system", "content": full_system},
             {"role": "user", "content": prompt},
         ]
+        raw_text = ""
         for attempt in range(3):
             try:
                 resp = client.chat(
                     model=model,
                     messages=messages,
                     format="json",
-                    options={"temperature": 0.0, "num_predict": 256, "num_ctx": 2048},
+                    options={"temperature": 0.0, "num_predict": 128, "num_ctx": 2048},
                 )
                 raw_text = resp["message"]["content"]
                 parsed = json.loads(raw_text)
@@ -199,9 +200,13 @@ def generate_json(
             except Exception:
                 if attempt == 2:
                     # Fallback extraction from markdown code block
-                    m = re.search(r"\{.*\}", raw_text, re.DOTALL)
-                    if m:
-                        return json.loads(m.group(0))
+                    if raw_text:
+                        m = re.search(r"\{.*\}", raw_text, re.DOTALL)
+                        if m:
+                            try:
+                                return json.loads(m.group(0))
+                            except Exception:
+                                pass
                     return {}
-                time.sleep(1.0)
+                time.sleep(2.0)
         return {}
