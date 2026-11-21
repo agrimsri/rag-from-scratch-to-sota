@@ -28,6 +28,10 @@ EMBED_NUM_CTX = int(os.getenv("EMBED_NUM_CTX", "2048"))
 EMBED_DOC_PREFIX = os.getenv("EMBED_DOC_PREFIX", "search_document: ")
 EMBED_QUERY_PREFIX = os.getenv("EMBED_QUERY_PREFIX", "search_query: ")
 
+# Chunking Hyperparameters (branch 02)
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "200"))
+
 # Pipeline Hyperparameters
 TOP_K = int(os.getenv("TOP_K", "5"))
 MIN_SCORE = float(os.getenv("MIN_SCORE", "0.35"))

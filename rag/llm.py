@@ -104,7 +104,7 @@ def generate(
                 resp = client.chat(
                     model=model,
                     messages=messages,
-                    options={"temperature": temp, "num_predict": 96},
+                    options={"temperature": temp, "num_predict": 96, "num_ctx": 2048},
                 )
                 text = resp["message"]["content"]
                 cache.set("llm_text", cache_key, text)
@@ -112,7 +112,7 @@ def generate(
             except Exception as e:
                 if attempt == 2:
                     raise
-                time.sleep(1.0)
+                time.sleep(2.0)
         return ""
 
 
@@ -190,7 +190,7 @@ def generate_json(
                     model=model,
                     messages=messages,
                     format="json",
-                    options={"temperature": 0.0},
+                    options={"temperature": 0.0, "num_predict": 256, "num_ctx": 2048},
                 )
                 raw_text = resp["message"]["content"]
                 parsed = json.loads(raw_text)

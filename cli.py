@@ -113,6 +113,7 @@ def cmd_eval(args):
         judge=args.judge,
         no_rag=args.no_rag,
         limit=args.limit,
+        output_filename=args.output,
     )
 
 
@@ -139,6 +140,7 @@ def main():
     eval_p.add_argument("--judge", action="store_true", help="Run LLM faithfulness & abstention judge")
     eval_p.add_argument("--no-rag", action="store_true", help="Evaluate raw LLM without retrieval")
     eval_p.add_argument("--limit", type=int, default=None, help="Limit number of questions to evaluate")
+    eval_p.add_argument("--output", type=str, default=None, help="Custom output filename for results")
 
     args = parser.parse_args()
     if args.command == "doctor":

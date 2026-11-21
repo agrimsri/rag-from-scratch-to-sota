@@ -233,7 +233,15 @@ def run_eval(
     elif no_rag:
         out_file = RESULTS_DIR / "00-no-rag.json"
     else:
-        out_file = RESULTS_DIR / "01-whole-doc.json"
+        try:
+            import subprocess
+            branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=REPO_ROOT).decode().strip()
+            if branch and branch != "main":
+                out_file = RESULTS_DIR / f"{branch}.json"
+            else:
+                out_file = RESULTS_DIR / "01-whole-doc.json"
+        except Exception:
+            out_file = RESULTS_DIR / "01-whole-doc.json"
 
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
@@ -243,13 +251,14 @@ def run_eval(
     return summary
 
 
-def main(split="dev", retrieval_only=False, judge=False, no_rag=False, limit=None):
+def main(split="dev", retrieval_only=False, judge=False, no_rag=False, limit=None, output_filename=None):
     run_eval(
         split=split,
         retrieval_only=retrieval_only,
         judge=judge,
         no_rag=no_rag,
         limit=limit,
+        output_filename=output_filename,
     )
 
 
