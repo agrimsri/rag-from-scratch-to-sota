@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `03-structure-aware` (`step-03`) — Heading & paragraph aware chunking with structural breadcrumbs.
+📍 **You are here:** `04-grounded-generation` (`step-04`) — Grounded JSON generation, citation enforcement, and injection resistance.
 
 ---
 
@@ -18,6 +18,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | 01-whole-doc | 0.954 | 0.954 | 0.765 | 0.521 | 51733 | 1.0 | 2.60 |
 | 02-chunking | 0.849 | 0.884 | 0.771 | 0.708 | 4736 | 0.3 | 0.50 |
 | 03-structure-aware | 0.930 | 0.954 | 0.878 | 0.792 | 1956 | 1.0 | 1.24 |
+| 04-grounded-generation | 0.930 | 0.954 | 0.878 | 0.625 | 1956 | 0.3 | 0.45 |
 
 ---
 
