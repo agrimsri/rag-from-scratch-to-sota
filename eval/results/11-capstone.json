@@ -1,0 +1,249 @@
+{
+  "split": "test",
+  "total_questions": 13,
+  "recall@5": 1.0,
+  "hit@5": 1.0,
+  "mrr": 0.95,
+  "accuracy": 0.7692,
+  "faithfulness": null,
+  "avg_context_chars": 2083,
+  "avg_llm_calls": 4.0,
+  "avg_latency_s": 5.89,
+  "total_time_s": 76.63,
+  "by_category": {
+    "adversarial": {
+      "count": 2,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "context-dependent": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "exact": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "long-doc": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "lookup": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "multi-chunk": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "multi-hop": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 0.0
+    },
+    "noisy-top-k": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "paraphrase": {
+      "count": 1,
+      "recall@5": 1.0,
+      "accuracy": 1.0
+    },
+    "unanswerable": {
+      "count": 3,
+      "recall@5": 1.0,
+      "accuracy": 0.3333
+    }
+  },
+  "rows": [
+    {
+      "id": "q006_test",
+      "category": "lookup",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2368,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 4.2834227085113525,
+      "answer": "Schellman & Company LLC"
+    },
+    {
+      "id": "q012_test",
+      "category": "long-doc",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2097,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 5.061105489730835,
+      "answer": "45000ms"
+    },
+    {
+      "id": "q018_test",
+      "category": "multi-chunk",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2324,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 4.359355688095093,
+      "answer": "30 days, 365 days"
+    },
+    {
+      "id": "q024_test",
+      "category": "unanswerable",
+      "answerable": false,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2229,
+      "correct": false,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 3.732404947280884,
+      "answer": "No direct native integration is mentioned in the provided context."
+    },
+    {
+      "id": "q025_test",
+      "category": "unanswerable",
+      "answerable": false,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 1699,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 4.337223768234253,
+      "answer": "There is no information in the provided context about pet insurance benefits for Quillstack employees."
+    },
+    {
+      "id": "q025b_test",
+      "category": "unanswerable",
+      "answerable": false,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2491,
+      "correct": false,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 3.9779417514801025,
+      "answer": "Not specified in the provided context"
+    },
+    {
+      "id": "q031_test",
+      "category": "exact",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 970,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 3.503185272216797,
+      "answer": "Cyclic pipe dependency detected across workspace boundaries."
+    },
+    {
+      "id": "q037_test",
+      "category": "paraphrase",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2056,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 14.24390459060669,
+      "answer": "Persistent payloads, metadata databases, and WAL records are guaranteed to remain physically resident within EU borders."
+    },
+    {
+      "id": "q043_test",
+      "category": "noisy-top-k",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2205,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 14.507379055023193,
+      "answer": "within 60 seconds"
+    },
+    {
+      "id": "q049_test",
+      "category": "context-dependent",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2279,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 3.7020366191864014,
+      "answer": "10 seconds"
+    },
+    {
+      "id": "q055_test",
+      "category": "multi-hop",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 2052,
+      "correct": false,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 5.753348350524902,
+      "answer": "Redis-backed QuillQueue"
+    },
+    {
+      "id": "q059_test",
+      "category": "adversarial",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 1.0,
+      "context_chars": 1966,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 4.497232913970947,
+      "answer": "max_connections=50, min_idle_connections=10"
+    },
+    {
+      "id": "q060_test",
+      "category": "adversarial",
+      "answerable": true,
+      "recall@5": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.5,
+      "context_chars": 2353,
+      "correct": true,
+      "faithful": null,
+      "llm_calls": 4,
+      "latency_s": 4.667277812957764,
+      "answer": "@cloud_guru_mark"
+    }
+  ]
+}
