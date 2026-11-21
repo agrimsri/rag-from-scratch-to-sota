@@ -38,8 +38,8 @@ MIN_SCORE = float(os.getenv("MIN_SCORE", "0.35"))
 
 # Technique Toggles for ablations and step-by-step progression
 USE_HYBRID = True
-USE_MULTI_QUERY = False
-USE_HYDE = False
+USE_MULTI_QUERY = True
+USE_HYDE = True
 USE_RERANK = False
 USE_CONTEXTUAL = False
 USE_SMALL_TO_BIG = False
