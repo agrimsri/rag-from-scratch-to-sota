@@ -6,6 +6,17 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
+📍 **You are here:** `01-whole-doc` (`step-01`) — Embedding whole documents with cosine similarity.
+
+---
+
+## 📊 Results Progression
+
+| Branch / Step | Recall@5 | Hit@5 | MRR | Accuracy | Context Chars | LLM Calls | Latency (s) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 00-no-rag | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.6 | 2.08 |
+| 01-whole-doc | 0.954 | 0.954 | 0.765 | 0.521 | 51733 | 1.0 | 2.60 |
+
 ---
 
 ## 🗺️ Course Map
@@ -50,19 +61,13 @@ cp .env.example .env
 
 ### 3. Verify Environment
 ```bash
-python eval/validate_dataset.py
+python cli.py doctor
 ```
 
-### 4. Exploring the Course
-To start learning, switch to the first branch:
+### 4. Running the Pipeline
 ```bash
-git checkout 01-whole-doc
-python cli.py doctor
 python cli.py index
 python cli.py ask "What is the atomic metering unit of Quillstack?" --show-context
-```
-
-To see what changes in each step, compare consecutive branches:
-```bash
-git diff step-01..step-02 --stat
+python cli.py eval
+python eval/compare.py
 ```
