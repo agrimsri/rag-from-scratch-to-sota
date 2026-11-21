@@ -27,12 +27,12 @@ def _split_into_sections(text: str) -> List[Dict[str, Any]]:
                         "heading_path": " > ".join(current_headings) if current_headings else "Overview",
                         "text": sec_text,
                     })
-                current_lines = []
             level = len(heading_match.group(1))
             title = heading_match.group(2).strip()
             # Adjust heading stack
             current_headings = current_headings[: level - 1]
             current_headings.append(title)
+            current_lines = [line]
         else:
             current_lines.append(line)
 

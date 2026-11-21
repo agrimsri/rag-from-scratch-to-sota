@@ -37,7 +37,7 @@ TOP_K = int(os.getenv("TOP_K", "5"))
 MIN_SCORE = float(os.getenv("MIN_SCORE", "0.35"))
 
 # Technique Toggles for ablations and step-by-step progression
-USE_HYBRID = False
+USE_HYBRID = True
 USE_MULTI_QUERY = False
 USE_HYDE = False
 USE_RERANK = False

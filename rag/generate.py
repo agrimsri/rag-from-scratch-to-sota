@@ -36,7 +36,8 @@ def generate_answer(
         }
 
     # Guard: if no hits or top score below threshold, abstain immediately without calling LLM
-    if not hits or hits[0].score < config.MIN_SCORE:
+    threshold = 0.005 if config.USE_HYBRID else config.MIN_SCORE
+    if not hits or hits[0].score < threshold:
         return {
             "answer": "I do not have sufficient information in the provided context to answer this question.",
             "answerable": False,
