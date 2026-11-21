@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `07-reranking` (`step-07`) — Two-stage retrieval with listwise LLM reranking.
+📍 **You are here:** `08-contextual-retrieval` (`step-08`) — Index-time chunk contextualization and disambiguation.
 
 ---
 
@@ -22,6 +22,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | 05-hybrid-search | 0.965 | 1.000 | 0.977 | 0.646 | 2037 | 1.0 | 0.98 |
 | 06-query-transform | 1.000 | 1.000 | 0.965 | 0.646 | 2115 | 2.8 | 2.54 |
 | 07-reranking | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 1.1 | 2.04 |
+| 08-contextual-retrieval | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.79 |
 
 ---
 
