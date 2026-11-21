@@ -6,7 +6,7 @@ Each technique lives on its own dedicated git branch. Every branch builds on the
 
 No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, and SQLite.
 
-📍 **You are here:** `09-small-to-big` (`step-09`) — Small-to-big retrieval with dynamic parent and sibling context expansion.
+📍 **You are here:** `10-agentic-rag` (`step-10`) — Agentic multi-hop retrieval loop with dynamic follow-up queries.
 
 ---
 
@@ -24,6 +24,7 @@ No heavy frameworks (no LangChain, no LlamaIndex). Pure Python, NumPy, Ollama, a
 | 07-reranking | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 1.1 | 2.04 |
 | 08-contextual-retrieval | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.79 |
 | 09-small-to-big | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.74 |
+| 10-agentic-rag | 1.000 | 1.000 | 0.965 | 0.646 | 2135 | 0.1 | 0.75 |
 
 ---
 
